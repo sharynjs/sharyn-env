@@ -2,8 +2,6 @@
 
 ## Usage
 
-### Installation
-
 ```bash
 npm install --save-dev @sharyn/env
 # or
@@ -19,3 +17,7 @@ import { NODE_ENV, PORT, DATABASE_URL } from '@sharyn/env'
 This package simply runs `dotenv/config` and exports `process.env` for a convenient access.
 
 Just use `@sharyn/env` in every file that needs access to the environment, and forget about `dotenv` and `process.env` completely. Yes it will run `dotenv/config` multiple times if you do this, but that's fine with me.
+
+## Credits
+
+Hey, I am [@verekia](https://github.com/verekia) and this package is part of a library I am developing, [@sharynjs/sharyn](https://github.com/sharynjs/sharyn). The rest of the library is not ready to be used by the community.
