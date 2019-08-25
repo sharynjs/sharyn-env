@@ -1,4 +1,5 @@
 require('dotenv/config')
 
-module.exports = process.env
+const { convertObject } = require('./convert')
 
+module.exports = convertObject(process.env)
