@@ -14,9 +14,51 @@ And import your environment variables directly:
 import { NODE_ENV, PORT, DATABASE_URL } from '@sharyn/env'
 ```
 
-This package simply runs `dotenv/config` and exports `process.env` for a convenient access.
+This package runs `dotenv/config`, converts some string values into their related primitives, and exports `process.env` for a convenient access.
 
-Just use `@sharyn/env` in every file that needs access to the environment, and forget about `dotenv` and `process.env` completely. Yes it will run `dotenv/config` multiple times if you do this, but that's fine with me.
+Just use `@sharyn/env` in every file that needs access to the environment, and forget about `dotenv` and `process.env` completely.
+
+## Conversion
+
+By default, `@sharyn/env` will convert some string values of `process.env` (case insensitive):
+
+```sh
+VAR='true' # true
+VAR='TRUE' # true
+VAR='True' # true
+VAR='TrUe' # true
+VAR='false' # false
+VAR='null' # null
+VAR='undefined' # undefined
+VAR='0' # 0
+VAR='1' # 1
+VAR='2' # '2'
+```
+
+If you do not want this conversion, you can import `@sharyn/env/raw` instead.
+
+## Caveats
+
+If `process.env` is modified after the code is initially evaluated, the env of `@sharyn/env` won't have those modifications:
+
+**.env**
+
+```.env
+FOO='FOO'
+```
+
+**script**
+
+```js
+import { FOO } from '@sharyn/env'
+
+process.env.FOO = 'BAR'
+
+console.log(FOO) // 'FOO'
+console.log(process.env.FOO) // 'BAR'
+```
+
+So if you use 3rd-party libraries that modify your `process.env`, those changes might not appear. It is the case with `process.env.STAGE` of [`serverless-offline`](https://github.com/dherault/serverless-offline).
 
 ## Credits
 
