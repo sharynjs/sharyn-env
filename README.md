@@ -14,28 +14,9 @@ And import your environment variables directly:
 import { NODE_ENV, PORT, DATABASE_URL } from '@sharyn/env'
 ```
 
-This package runs `dotenv/config`, converts some string values into their related primitives, and exports `process.env` for a convenient access.
+This package simply runs `dotenv/config` and exports `process.env` for a convenient access.
 
 Just use `@sharyn/env` in every file that needs access to the environment, and forget about `dotenv` and `process.env` completely.
-
-## Conversion
-
-By default, `@sharyn/env` will convert some string values of `process.env` (case insensitive):
-
-```sh
-VAR='true' # true
-VAR='TRUE' # true
-VAR='True' # true
-VAR='TrUe' # true
-VAR='false' # false
-VAR='null' # null
-VAR='undefined' # undefined
-VAR='0' # 0
-VAR='1' # 1
-VAR='2' # '2'
-```
-
-If you do not want this conversion, you can import `@sharyn/env/raw` instead.
 
 ## Credits
 
