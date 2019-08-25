@@ -1,6 +1,6 @@
 {
   "name": "@sharyn/env",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "index.js",
   "repository": "git@github.com:sharynjs/sharyn-env.git",
   "license": "MIT",
