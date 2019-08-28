@@ -18,6 +18,8 @@ This package simply runs `dotenv/config` and exports `process.env` for a conveni
 
 Just use `@sharyn/env` in every file that needs access to the environment, and forget about `dotenv` and `process.env` completely.
 
-## Credits
+<hr />
 
-Hey, I am [@verekia](https://github.com/verekia) and this package is part of a library I am developing, [@sharynjs/sharyn](https://github.com/sharynjs/sharyn). The rest of the library is not ready to be used by the community.
+<p align="center">
+  This package is part of <a href="https://github.com/sharynjs/sharyn"><b>@sharynjs/sharyn</b></a>.
+</p>
